@@ -1,0 +1,19 @@
+<div class="link-form">
+	<% if defined?(already_have) or defined?(error_occured) %>
+	<div class="info">
+		<% if defined?(already_have) %>
+			You have already added this bookmark
+		<% else %>
+			Please enter a valid url
+		<% end %>
+	</div>
+	<% end %>
+	<%= form_for([@current_user, @bookmark], :url => user_bookmarks_path(:username => @current_user.username), :remote => true) do |f| %>
+	<% #user_bookmarks_path(@current_user) form_for :user, :remote => true, :url => { :controller => "users", :action => "create" } do |f| %>
+		<div class="field-holder">
+		   <%= f.label :url %>
+		   <%= f.text_field :url, :class => 'bookmark-url' %>
+		   <%= submit_tag 'Save', :id => 'submit-btn' %>
+		</div>
+	<% end %>	
+</div>

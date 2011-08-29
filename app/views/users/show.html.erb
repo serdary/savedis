@@ -1,0 +1,21 @@
+<div class="user-detail">
+	<h1><%= @user.username.capitalize %> Bookmarks & Notes</h1>
+	<div class="sub-items">
+		<%= link_to pluralize(@user.bookmark_count, 'bookmark'), user_bookmarks_path(:username => @user.username) %>
+		<%= link_to pluralize(@user.note_count, 'note'), user_notes_path(:username => @user.username) %>
+	</div>
+
+	<div class="user-bookmarks">
+		<h2><%= @user.username.capitalize %> Bookmarks</h2>
+		<%= render :partial => 'shared/bookmark_list', :locals => { :pagination_disabled => true } %>
+	
+		<%= link_to 'All bookmarks', user_bookmarks_path(:username => @user.username), :class => 'see-all' %>
+	</div>
+
+	<div class="user-notes">
+		<h2><%= @user.username.capitalize %> Notes</h2>
+		<%= render :partial => 'shared/note_list', :locals => { :pagination_disabled => true } %>
+	
+		<%= link_to 'All notes', user_notes_path(:username => @user.username), :class => 'see-all' %>
+	</div>	
+</div>

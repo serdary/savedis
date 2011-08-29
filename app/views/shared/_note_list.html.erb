@@ -1,0 +1,25 @@
+<div class="note-list">
+<% @notes.each do |note| %>
+  <div class="row">
+    <div class="title"><%= link_to note.title, note %></div>
+    <div class="content"><%= note.content %></div>
+
+		<%= render :partial => 'shared/tags', :locals => { :object => note } %>
+		
+		<% if defined?(profile_list) and profile_list and content_owner %>
+			<div class="action">
+				<%= link_to 'Edit', edit_user_note_path(@current_user.username, :id => note.id) %>
+				<%= link_to 'Delete', note, confirm: 'Are you sure?', method: :delete %>
+			</div>
+		<% end %>
+  </div>
+<% end %>
+
+<%= 'No notes found' if @notes.empty? %>
+</div>
+
+<% if !defined?(pagination_disabled) %>
+	<div class="paging">
+		<%= will_paginate @notes %>
+	</div>
+<% end %>

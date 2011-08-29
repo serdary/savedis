@@ -1,0 +1,10 @@
+<h1>Listing tags</h1>
+
+<table>
+<% @tags.each do |tag| %>
+  <tr>
+    <td><%= link_to tag.value, tag %></td>
+    <td><%= tag.count %></td>
+  </tr>
+<% end %>
+</table>

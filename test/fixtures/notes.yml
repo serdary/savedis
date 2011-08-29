@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: Test Note 1 Title
+  content: Test Note 1 Content
+  is_deleted: false
+
+two:
+  title: Test Note 2 Title
+  content: Test Note 2 Content
+  is_deleted: false

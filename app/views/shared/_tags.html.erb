@@ -1,0 +1,10 @@
+<% if object.tags.any? %>
+	<div class="tags">
+		<span class="tag-title">Tags:</span>
+		<% object.tags.each do |tag| %>
+			<span><%= link_to tag.value, tag %></span>
+		<% end %>
+	</div>
+<% else %>
+	<div>No tags!</div>
+<% end %>

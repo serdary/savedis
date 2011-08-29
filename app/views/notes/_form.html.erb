@@ -1,0 +1,35 @@
+<%= form_for([@current_user, @note], :url => @note.new_record? ? user_notes_path(@current_user.username) : update_user_note_path(:username => @current_user.username, :id => @note.id)) do |f| %>
+
+  <% if @note.errors.any? %>
+    <div id="errors-holder">
+      <h2>Please fix below <%= pluralize(@note.errors.count, "error") %></h2>
+
+      <ul>
+      <% @note.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field-holder">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field-holder">
+    <%= f.label :content %>
+    <%= f.text_area :content, :rows => 5 %>
+  </div>
+	<div class="field-holder">
+    <%= f.label :is_private %>
+    <%= f.check_box :is_private, :class => 'checkbox' %>
+  </div>
+	<div class="field-holder">
+	  <%= label_tag :tag_value, 'Tags' %>
+	  <%= text_field_tag :tag_value, @tags %>
+	</div>
+	
+  <div class="actions">
+    <%= f.submit 'Create', :id => 'submit-btn' %>
+  </div>
+<% end %>

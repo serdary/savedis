@@ -1,0 +1,21 @@
+<h1><%= @tag.value.capitalize %> Bookmarks & Notes</h1>
+
+<div class="tag-bookmarks">
+	<h2><%= @tag.value %> Bookmarks</h2>	
+	<% if @bookmarks.any? %>
+		<%= render :partial => 'shared/bookmark_list', :locals => { :pagination_disabled => true } %>
+		<%= link_to 'All bookmarks', tag_bookmarks_path(@tag), :class => 'see-all' %>
+	<% else %>
+		No bookmarks tagged with <b><%= @tag.value %></b>
+	<% end %>
+</div>
+
+<div class="tag-notes">
+	<h2><%= @tag.value %> Notes</h2>
+	<% if @notes.any? %>
+		<%= render :partial => 'shared/note_list', :locals => { :pagination_disabled => true } %>
+		<%= link_to 'All notes', tag_notes_path(@tag), :class => 'see-all' %>
+	<% else %>
+		No notes tagged with <b><%= @tag.value %></b>
+	<% end %>
+</div>

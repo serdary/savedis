@@ -1,0 +1,100 @@
+// Place all the styles related to the Bookmarks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$list_border_color: #DDDDDD;
+a {
+  color: #73A2BD;
+  &:visited {
+    color: #73A2BD; }
+  &:hover {
+    color: #fff;
+		text-decoration: none;
+    background-color: #73A2BD; }
+}
+
+#errors-holder {
+	margin-bottom: 20px;
+	padding: 20px 0 0;
+	width: 500px;
+  h2 {
+    color: #CC0000;
+    font-size: 12px;
+    font-weight: normal;
+    text-align: left; }
+  ul li {
+    font-size: 12px;
+    list-style: square outside none; }
+}
+
+.bookmark-list {
+	float: left;
+	width: 100%;
+	.row {
+		border-bottom: 1px solid $list_border_color;
+		clear: both;
+		float: left;
+		padding: 10px 0;
+		width: 100%;
+	}	
+	.title {
+	  margin-bottom: 3px;
+	}
+	.title a {
+	  font-size: 14px;
+	}
+	.title a:hover {
+		color: #73A2BD;
+		background-color: #FFF;
+	}
+	.desc {
+	}
+	.save-count {
+		float: left;
+		margin-right: 25px;
+	}
+	.save-count a {
+	}
+	.action {
+	}
+	.tags {
+		.tag-title {
+		}
+		span {
+		}
+	}
+}
+
+.link-form, .bookmark-form {
+	margin-top: 20px;
+}
+
+.link-form input.bookmark-url {
+  width: 400px;
+}
+
+.bookmark-detail {
+	h1.title {
+	  font-size: 18px;
+	  margin-bottom: 10px;
+	}
+	.description {
+		margin-bottom: 7px;
+	}
+	.visibility {
+		margin-bottom: 7px;
+	}
+	.save-users {
+		h4 {
+			font-size: 12px;
+		}
+		span {
+		}
+	}
+	.save-count {
+  	margin: 7px 0;
+	}
+	.action {
+    margin: 7px 0;
+	}
+}

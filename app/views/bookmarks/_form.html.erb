@@ -1,0 +1,41 @@
+<div class="bookmark-form">
+	<%= form_for([@current_user, @bookmark], :url => @bookmark.new_record? ? user_bookmarks_path(@current_user.username) : update_user_bookmark_path(:username => @current_user.username, :id => @bookmark.id)) do |f| %>
+	
+		<% if !defined?(@edit_action) %>
+		  <div class="field-holder">
+		    <%= f.label :url %>
+		    <%= f.text_field :url, :class => 'bookmark-url' %>
+		    <%= f.hidden_field :title, :class => 'title' %>
+		    <%= f.hidden_field :description, :class => 'description' %>
+		  </div>
+		<% end %>
+	
+		<%= f.fields_for :bookmark_users do |bookmark_user_form| %>
+		  <div class="field-holder">
+		    <%= bookmark_user_form.label :title %>
+		    <%= bookmark_user_form.text_field :title, :class => 'bookmark-title' %>
+		  </div>
+		  <div class="field-holder">
+		    <%= bookmark_user_form.label :description %>
+		    <%= bookmark_user_form.text_area :description, :rows => 5, :class => 'bookmark-description' %>
+		  </div>
+			<div class="field-holder">
+	    <%= bookmark_user_form.label :is_private %>
+	    <%= bookmark_user_form.check_box :is_private, :class => 'checkbox' %>
+			</div>
+		<% end %>
+	
+		<div class="field-holder">
+		  <%= label_tag :tag_value, 'Tags' %>
+		  <%= text_field_tag :tag_value, @tags %>
+		
+			<div class="tag-explanation">
+				Please use commas to seperate tags
+			</div>
+		</div>
+	
+	  <div class="field-holder actions">
+	    <%= f.submit 'Save', :id => 'submit-btn' %>
+	  </div>
+	<% end %>	
+</div>

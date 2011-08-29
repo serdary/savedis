@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  value: MyString
+  slug: mystring
+  count: 1
+
+two:
+  value: My String2
+  slug: my-string2
+  count: 1

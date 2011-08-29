@@ -1,0 +1,46 @@
+Savedis - Open Source Mini Bookmarking Tool 
+-----------------------------------------------------------
+
+Author: Serdar Yildirim // me[dot]serdaryildirim[dot]com
+Website: www.savedis.com
+Demo Website: www.savedis.com/demo
+Current Version: 0.9
+
+Started as a Rails 3 learning app.
+
+Current Features
+-----------------------------------------------------------
+
+* Public / Private bookmark management
+* Public / Private note management
+* Personal bookmark title and comment
+* Tagging bookmarks and notes
+* Registration / Login
+* User profiles with public bookmarks and notes
+
+Dependencies
+-----------------------------------------------------------
+
+* ruby >= 1.9.2
+* rubygems >= 1.3.7
+* ruby on rails 3
+
+Installation
+-----------------------------------------------------------
+
+* Install the dependencies
+	sudo gem install bundler
+	
+* Download savedis source code
+	https://github.com/serdary/savedis
+	
+* Change the application configs
+	config/config.yml
+	config/database.yml
+	
+* Install app dependencies
+	bundle install
+
+* Start the server
+	rails s
+	

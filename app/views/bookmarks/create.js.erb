@@ -1,0 +1,14 @@
+<% if @check_result %>
+	$('#form-holder').html("<%= j render(:partial => "form", :locals => {:current_user => @current_user, :bookmark => @bookmark})  %>");
+	$('.bookmark-url').val("<%= j @bookmark.url %>").attr("readonly", "true");
+	$('.bookmark-title').val("<%= j @bookmark.title %>");
+	$('.bookmark-description').val("<%= j @bookmark.description %>");
+	$('.title').val("<%= j @bookmark.title %>");
+	$('.description').val("<%= j @bookmark.description %>");
+	<% else %>
+	<% if @has_same_url %>
+		$('#form-holder').html("<%= j render(:partial => "link_form", :locals => {:current_user => @current_user, :already_have => true})  %>");
+	<% else %>
+		$('#form-holder').html("<%= j render(:partial => "link_form", :locals => {:current_user => @current_user, :error_occured => true})  %>");
+	<% end %>
+<% end %>

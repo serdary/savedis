@@ -1,0 +1,33 @@
+<div class="bookmark-detail">
+	<h1 class="title"><%= link_to @title, @bookmark.url %></h1>
+
+	<div class="description"><%= @description %></div>
+
+	<%= render :partial => 'shared/tags', :locals => { :object => @bookmark } %>
+
+	<div class="save-count"><%= link_to pluralize(@bookmark.save_count, 'save'), @bookmark %></div>
+
+	<% if defined?(@publicly_visible) %>
+		<div class="visibility"><b>Visible?: </b><%= @publicly_visible ? 'yes' : 'no' %></div>
+	<% end %>
+
+	<div class="save-users">
+		<% if @public_list.any? %>
+			<h4>Users who saved this</h4>
+			
+			<% @public_list.each do |item| %>
+				<span><%= link_to item.username, user_profile_path(:username => item.username) %></span>
+			<% end %>
+		<% end %>
+
+		<% if @private_user_count > 0 %>
+			<h4><%= pluralize(@private_user_count, 'private save') %></h4>	
+		<% end %>
+	</div>
+
+	<div class="action">
+		<%= link_to 'Edit', edit_user_bookmark_path(@current_user.username) if @content_owner %>
+		<%= link_to 'Delete', @bookmark, confirm: 'Are you sure?', method: :delete if @content_owner %>
+		<%= link_to 'Back', root_url %>
+	</div>	
+</div>

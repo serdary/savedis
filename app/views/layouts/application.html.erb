@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= configatron.site_name %></title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="wrapper">
+	<p id="notice"><%= notice %></p>	
+	<div id="header">
+		<div id="logo">
+			<h1><%= link_to configatron.site_name.capitalize, root_url %></h1>
+		</div>
+	</div>
+	<div id="account">
+		<% if session[:user_id] and @current_user %>
+		  <%= link_to @current_user.username.capitalize, user_profile_path(:username => @current_user.username) %>
+			<%= link_to 'Settings', settings_path %>
+		
+			<%= link_to 'Logout', logout_path, :method => :delete %>
+		<% else %>
+			<%= link_to 'Login', login_path %>
+			<%= link_to 'Register', register_path %>
+		<% end %>
+	</div>
+	
+	<div id="navigation">
+		<%= link_to 'Popular', root_path %>|
+		<%= link_to 'Recent', recent_path %>|
+		<%= link_to 'Notes', recentnotes_path %>
+		
+		<% if @current_user %>		
+			|<%= link_to 'New Bookmark', new_user_bookmark_path(@current_user.username) %>
+			|<%= link_to 'New Note', new_user_note_path(:username => @current_user.username) %>
+		<% end %>
+	</div>
+
+	<div id="main">
+		<div id="sidebar">
+			<div class="app-tags">
+				<h3>Tags</h3>
+				<% Tag.app_tags.each do |tag| %>
+					<div class="tag"><%= link_to tag.value, tag %></div>
+				<% end %>
+			</div>
+		</div>
+		
+		<div id="content">
+			<%= yield %>
+		</div>
+	</div>
+	
+	<div class="clear-both" />
+	<%= debug(params) if Rails.env.development? %>
+	
+</div>
+</body>
+</html>

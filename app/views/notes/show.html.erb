@@ -1,0 +1,18 @@
+<div class="note-detail">
+	<h1 class="title"><%= @note.title %></h1>
+
+	<div class="content"><%= @note.content %></div>
+
+	<div class="visibility"><b>Visible?: </b><%= @note.is_private ? 'no' : 'yes' %></div>
+
+	<div class="username"><b>Username: </b><%= link_to @note.user.username, user_profile_path(@note.user.username) %></div>
+
+	<%= render :partial => 'shared/tags', :locals => { :object => @note } %>
+
+	<div class="action">
+		<%= link_to 'Edit', edit_user_note_path(@current_user.username) if @content_owner %>
+		<%= link_to 'Delete', @note, confirm: 'Are you sure?', method: :delete if @content_owner %>
+	</div>
+
+	<%= link_to 'Back', recentnotes_path %>
+</div>

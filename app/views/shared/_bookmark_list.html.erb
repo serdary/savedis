@@ -1,0 +1,33 @@
+<div class="bookmark-list">
+	<% @bookmarks.each do |bookmark| %>
+	  <div class="row <%= cycle('row-odd', 'row-even') %>">
+	    <div class="title">
+				<%= link_to bookmark.title, bookmark.url, :target => '_blank' %>
+			</div>
+	    <div class="desc">
+				<%= bookmark.description %>
+			</div>
+	    <div class="save-count">
+				<%= link_to pluralize(bookmark.save_count, 'save'), bookmark %>
+				<!-- TODO: make slug of bookmark and use it -->
+			</div>
+
+			<% if defined?(profile_list) and content_owner %>
+				<div class="action">
+					<%= link_to 'Edit', edit_user_bookmark_path(@current_user.username, :id => bookmark.id) %>
+					<%= link_to 'Delete', bookmark, confirm: 'Are you sure?', method: :delete %>
+				</div>
+			<% end %>
+			
+			<%= render :partial => 'shared/tags', :locals => { :object => bookmark } %>
+	  </div>
+	<% end %>
+	
+<%= 'No bookmarks found' if @bookmarks.empty? %>
+</div>
+
+<% if !defined?(pagination_disabled) %>
+	<div class="paging">
+		<%= will_paginate @bookmarks %>
+	</div>
+<% end %>

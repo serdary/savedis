@@ -1,0 +1,17 @@
+development: &local
+  site_name: Savedis
+  site_url: savedis.com
+
+  info_email: info@savedis.com
+  page_size: 2
+production:
+  site_name: Savedis
+  site_url: savedis.com
+    
+  info_email: info@savedis.com
+  page_size: 10
+staging:
+  <<: *local
+
+test:
+  <<: *local

@@ -1,0 +1,28 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+<% SALT = 'DUMMY_SALT' %>
+
+user1:
+  username: user1
+  email: email@email.com
+  hashed_password: <%= User.hash_password('MyString', SALT) %>
+  salt: <%= SALT %>
+
+user2:
+  username: user2
+  email: email2@email.com
+  hashed_password: MyString
+  salt: MyString
+  
+user_invalid_email:
+  username: user3
+  email: MyString
+  hashed_password: MyString
+  salt: MyString
+  
+user_admin:
+  username: admin
+  email: admin@savedis.com
+  hashed_password: MyString
+  salt: MyString
+  

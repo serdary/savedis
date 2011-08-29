@@ -1,0 +1,176 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree .
+*/
+body {
+  background-color: #FFFFFF;
+  color: #333333;
+  font-family: verdana,arial,helvetica,sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px; 
+}
+
+h1, h2, h3, h4, h5, h6 , p {
+	margin: 0;
+	padding: 0;
+}
+
+.clear-both {
+	clear: both;
+}
+
+.no-padding {
+	padding: 0;
+}
+
+#wrapper {
+  margin: auto;
+  overflow: hidden;
+  padding: 20px 0 0;
+  width: 900px;
+}
+
+#header {
+  float: left;
+  height: 40px;
+}
+
+#logo {
+	
+}
+
+#logo a {
+	color: #7AA7D6;
+  font-size: 26px;
+  font-weight: normal;
+}
+
+#logo a:hover {
+	color: #7AA7D6;
+	background-color: #FFF;
+}
+
+#account {
+	float: right;
+}
+
+#account a {
+
+}
+
+#navigation {
+  clear: both;
+  height: 35px;
+	margin-left: -5px;
+}
+
+#navigation a {
+  font-size: 13px;
+  margin: 0 5px;
+}
+
+#main {
+	float: left;
+}
+
+#sidebar {
+	float: left;
+  width: 200px;
+	overflow: hidden;
+}
+
+#sidebar .app-tags {
+  float: left;
+  width: 190px;
+}
+
+#sidebar .app-tags h3 {
+  border-bottom: 1px solid #888888;
+  color: #666666;
+  font-weight: normal;
+  margin-bottom: 5px;
+  padding-bottom: 3px;
+  width: 100%;
+}
+
+#sidebar .app-tags .tag {
+	margin-bottom: 3px;
+}
+
+#content {
+  float: right;
+  width: 700px;
+}
+
+#content h1 {
+  color: #444;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.field-holder {
+  margin-bottom: 10px;
+  width: auto;
+}
+
+.field-holder label {
+  color: #666666;
+  float: left;
+  line-height: 24px;
+  width: 80px;
+}
+
+.field-holder input {
+  padding: 4px;
+  width: 360px;
+}
+
+.field-holder textarea {
+  height: 180px;
+  padding: 4px;
+  width: 364px;
+}
+
+.field-holder input.checkbox {
+  height: 16px;
+  width: 14px;
+}
+
+input#submit-btn {
+	height: 28px;
+	width: 100px;
+}
+
+#notice {
+  color: green;
+	margin-bottom: 10px;
+}
+
+.field_with_errors {
+  background-color: #B8D0DE;
+  padding: 2px;
+}
+
+.paging {
+}
+
+.invisible {
+	display: none;
+}

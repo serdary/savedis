@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: BookmarkTestTitle1
+  url: http://bookmarktesturl1.com
+  description: BookmarkTestDesc1
+
+two:
+  title: BookmarkTestTitle2
+  url: http://bookmarktesturl2.com
+  description: BookmarkTestDesc2
+  
+savedis:
+  title: Savedis
+  url: http://savedis.com
+  description: Savedis Desc
+  

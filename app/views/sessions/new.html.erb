@@ -1,0 +1,18 @@
+<div class="user-form">
+	<h1>Login</h1>
+	<%= form_tag (login_path) do %>
+  <div class="field-holder">
+		<label for="username">username:</label>
+		<%= text_field_tag :username, params[:username] %>
+	</div>
+	
+  <div class="field-holder">
+		<label for="password">password:</label>
+		<%= password_field_tag :password, params[:password] %>
+	</div>
+	
+  <div class="field-holder">
+		<%= submit_tag 'Login', :id => 'submit-btn' %>
+	</div>
+	<% end %>
+</div>

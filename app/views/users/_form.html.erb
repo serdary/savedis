@@ -1,0 +1,31 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="errors-holder">
+      <h2>Please fix below <%= pluralize(@user.errors.count, "error") %></h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	
+	<% if @new_action %>
+	  <div class="field-holder">
+	    <%= f.label :username %>
+	    <%= f.text_field :username %>
+	  </div>
+	<% end %>
+  <div class="field-holder">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field-holder">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Register', :id => 'submit-btn' %>
+  </div>
+<% end %>
